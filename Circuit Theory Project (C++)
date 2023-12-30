@@ -1,0 +1,196 @@
+#include<iostream>
+#include<windows.h>
+#include<unistd.h>
+#include<cmath> 
+using namespace std;
+
+void ChargingOfCapacitor(){
+	int MIB;
+	bool check;
+	int done = 1;
+	float r1=NULL,r2=NULL;
+	float l1=NULL,l2=NULL;
+	float r3=NULL,r4=NULL;
+	float e = 2.73;
+	go1:
+	cout<<"  ___/ ____________ \n";
+	cout<<"  |            |   |\n";
+	cout<<"  |            |   |\n";
+	cout<<"  |            |   |\n";
+	cout<<"------        --- (V)\n";
+	cout<<" ---          ---  |\n ";
+	cout<<" |            |   |\n";
+	cout<<"  |            |   |\n";
+	cout<<"  |___/\\/\\/\\___|___|\n"; 
+
+ 
+
+	if(done==1||MIB==1){
+		cout<<"Enter the value of R(Resistance): ";
+		cin>>r2;
+		system("cls");
+		done++;
+		MIB=0;
+		goto go1;
+	}
+	if(done==2||MIB==2){
+		cout<<"Enter the value of C(capacitance): ";
+		cin>>l2;
+		system("cls");
+		done++;
+		MIB=0;
+		goto go1;
+	}
+	if(done==3||MIB==3){
+		cout<<"Enter the value of T (Time) : ";
+		cin>>r3;
+		system("cls");
+		done++;
+		MIB=0;
+		goto go1;
+	}
+	cout<<"Are You Sure ?? \n";
+	cin>>check;
+	system("cls");
+	if(check==true){
+		int a =0;
+		x:
+			if(a<3){
+				cout<<"Calculating";
+				for(int i = 0 ; i<3 ; i++){
+					cout<<".";
+					sleep(1);
+					}
+				a++;
+				system("cls");
+				goto x;
+			}
+		l1 = -r3/(r2*l2);
+		r1 = 1-(pow(e,l1));
+		cout<<"Result :\n";
+		
+		cout<<"Q = "<<r1<<endl;
+	}else{
+		cout<<"Enter the number of element in which you want change\n1. R\n2. C\n3. t\n";
+		cin>>MIB;
+		goto go1;
+	}
+}
+void DischargingOfCapacitor(){
+	int MIB;
+	bool check;
+	int done = 1;
+	float r1=NULL,r2=NULL;
+	float l1=NULL,l2=NULL;
+	float r3=NULL,r4=NULL;
+	float e = 2.73;
+	go1:
+	 cout<<"  ___/ ____________________\n";
+	cout<<"  |            |     |     |\n";
+	cout<<"  |            |     |     |\n";
+	cout<<"  |            |     |     |\n";
+	cout<<"------        ---    \\    (V)\n";
+	cout<<" ---          ---    /     |\n ";
+	cout<<" |            |     \\     |\n";
+	cout<<"  |            |     /     |\n";
+	cout<<"  |            |     |     |\n";
+	cout<<"  |            |     |     |\n";
+	cout<<"  |____________|_____|_____|\n"; 
+
+ 
+
+	if(done==1||MIB==1){
+		cout<<"Enter the value of R(Resistance): ";
+		cin>>r2;
+		system("cls");
+		done++;
+		MIB=0;
+		goto go1;
+	}
+	if(done==2||MIB==2){
+		cout<<"Enter the value of C(capacitance): ";
+		cin>>l2;
+		system("cls");
+		done++;
+		MIB=0;
+		goto go1;
+	}
+	if(done==3||MIB==3){
+		cout<<"Enter the value of T (Time) : ";
+		cin>>r3;
+		system("cls");
+		done++;
+		MIB=0;
+		goto go1;
+	}
+	cout<<"Are You Sure ?? \n";
+	cin>>check;
+	system("cls");
+	if(check==true){
+		int a =0;
+		x:
+			if(a<3){
+				cout<<"Calculating";
+				for(int i = 0 ; i<3 ; i++){
+					cout<<".";
+					sleep(1);
+					}
+				a++;
+				system("cls");
+				goto x;
+			}
+		l1 = -r3/(r2*l2);
+		r1 = (pow(e,l1));
+		cout<<"Result :\n";
+		
+		cout<<"Q = "<<r1<<endl;
+	}else{
+		cout<<"Enter the number of element in which you want change\n1. R\n2. C\n3. t\n";
+		cin>>MIB;
+		goto go1;
+	}
+}
+
+
+
+int main(){
+	bool abc = true;
+	string exit;
+	int a = 0,enter;
+	cout<<"CHARGING AND DISCHARGING OF CAPACITOR\n";
+
+	cout<<"Project made by Archit Aggarwal and Muskan \n";
+	sleep(6);
+	system("cls");
+	x:
+		if(a<3){
+			cout<<"Starting Project!!\nPlease Wait";
+			for(int i = 0 ; i<3 ; i++){
+				cout<<".";
+				sleep(1);
+				}
+			a++;
+			system("cls");
+			goto x;
+		}
+	
+	while(abc){
+		cout<<"Charging and Discharging of Capacitor:\n1. Charging(Vc)\n2. Discharging(Vd)\n So what do you want to calculate : ";
+		cin>>enter;
+		if(enter==1){
+			system("cls");
+			ChargingOfCapacitor();
+		}else if(enter == 2){
+			system("cls");
+			DischargingOfCapacitor();
+		}
+		cout<<"\n\nDo you want to continue using the program ? 'yes' or 'no' ";
+		cin>>exit;
+		if(exit=="yes"){
+			
+		}else{
+			abc = false;
+		}
+	}
+	
+}
